@@ -44,14 +44,10 @@ body{
   }
 
   .centered {
-    position: fixed; /* or absolute */
-    top: 20%;
-    left: 13%;
-  }
-
-  .dr-info {
-    position: fixed;
-    top: 10%;
+    position: relative;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    right: 15%;
   }
 
   .label {
@@ -61,6 +57,7 @@ body{
 
   main {
     width: 70%;
+    height: 80%;
   }
 
   .autocomplete {

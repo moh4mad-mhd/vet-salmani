@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="../js/main.js"></script>
+    <title>Dr Salmani | petshop</title>
+</head>
+
+<body>
+
+    <header></header>
+
+    <main class="centered">
+
+        <div class="topnav">
+            <a class="active" href="home.ejs">ثبت پرونده</a>
+            <a href="cases.ejs">پرونده ها</a>
+            <a href="petshop.ejs">پت شاپ</a>
+            <a href="paycheck.ejs">صورت حساب مالی</a>
+        </div>
+
+
+
+        <div class="info w3-container w3-card-4 w3-light-grey">
+            <table>
+                <tr>
+                    <td>
+                        <label for="fname" class="label">نام و نام خانوادگی:</label>
+                    </td>
+                    <td class="td-input">
+                        <input type="text" id="fname" name="fname" class="input w3-input w3-border w3-round-large"
+                            placeholder="نام و نام خانوادگی">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="address" class="label">آدرس:</label>
+                    </td>
+                    <td>
+                        <input type="textarea" class="input w3-input w3-border w3-round-large" id="address"
+                            name="address" placeholder="آدرس">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="tel" class="label">شماره تلفن:</label>
+                    </td>
+                    <td>
+                        <input type="text" class="input w3-input w3-border w3-round-large" id="tel" name="tel"
+                            placeholder="شماره تلفن">
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+    </main>
+    <footer></footer>
+
+
+    <script>
+        autocomplete(document.getElementById("pet_type"), pet);
+    </script>
+</body>
+
+</html>

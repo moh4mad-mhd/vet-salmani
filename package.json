@@ -1,0 +1,14 @@
+{
+  "name": "vet-salmani",
+  "version": "1.0.0",
+  "description": "node app for organizing cases",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "moh4mad",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.12"
+  }
+}

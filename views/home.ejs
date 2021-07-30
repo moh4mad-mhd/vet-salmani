@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
     <script src="../js/main.js"></script>
     <title>Dr Salmani</title>
 </head>
@@ -132,6 +133,10 @@
 
     <script>
         autocomplete(document.getElementById("pet_type"), pet);
+
+        var socket = io()
+
+        socket.on('connection')
     </script>
 </body>
 

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../js/main.js"></script>
     <title>Dr Salmani</title>
 </head>
@@ -27,12 +27,12 @@
         </div>
 
 
-        <form autocomplete="off" action="/home/confirm" method="post" class="w3-container w3-card-4 w3-light-grey">
+        <form autocomplete="off" action="/home" method="post" class="w3-container w3-card-4 w3-light-grey">
             <div id="new-case">
                 <table>
                     <tr>
                         <td>
-                            <button class="w3-button w3-round-large w3-green btn-new-case" onclick="new_case()">پرونده ی
+                            <button type="button" class="w3-button w3-round-large w3-green btn-new-case" onclick="new_case()">پرونده ی
                                 جدید</button>
                         </td>
                     </tr>
@@ -134,11 +134,16 @@
 
     <script>
         autocomplete(document.getElementById("pet_type"), pet);
-
+    </script>
+    <script>
         var socket = io()
-
         socket.on('connection')
-
+        $(document).ready(()=> {
+            $('#submit').click(function(){
+                const data = { fullname: $('#fname').val()}
+                alert(data.fullname)
+            })
+        })
     </script>
 </body>
 

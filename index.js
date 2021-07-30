@@ -4,11 +4,16 @@ const server = require('http').createServer(app)
 const io = require('socket.io')(server, { cors: { origin: "*" } })
 
 app.use(express.json())
+app.use(express.static(__dirname))
 app.use(express.urlencoded())
 app.set('view engine', 'ejs')
 
 app.get('/home', (req, res) => {
     res.render('home')
+})
+
+app.post('/home', (req, res) => {
+    res.render('confirm')
 })
 
 server.listen(3001, '0.0.0.0', () => {
@@ -19,6 +24,7 @@ io.on('connection', (socket) => {
     console.log("user connected:" + socket.id)
 
     socket.on('message', (data) => {
-        socket.broadcast.emit('message', data)
+        console.log("data:" + data)
+        //socket.broadcast.emit('message', data)
     });
 });

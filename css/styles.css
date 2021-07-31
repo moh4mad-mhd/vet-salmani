@@ -47,7 +47,7 @@ body{
     position: relative;
     margin-top: 50px;
     margin-bottom: 50px;
-    right: 15%;
+    right: 18%;
   }
 
   .label {
@@ -109,6 +109,23 @@ body{
 
   input:read-only{
     background-color:darkgray;
+  }
+
+  #lastId {
+    position: relative;
+    margin-top: 10px;
+    margin-right: 30px;
+  }
+
+  .card {
+    position: relative;
+    margin-right: 10px;
+    margin-left: 3px;
+  }
+
+  .sidebar {
+    padding-top: 70px;
+    width: 250px !important;
   }
 
   

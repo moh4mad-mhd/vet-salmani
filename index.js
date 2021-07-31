@@ -16,6 +16,10 @@ app.post('/home', (req, res) => {
     res.render('confirm')
 })
 
+app.get('/doctor', (req, res) => {
+    res.render('doctor')
+})
+
 server.listen(3001, '0.0.0.0', () => {
     console.log("server running...")
 })
@@ -27,4 +31,8 @@ io.on('connection', (socket) => {
         console.log("data:" + data)
         //socket.broadcast.emit('message', data)
     });
+
+    socket.on('getLastId', () => {
+        socket.emit('getLastId', "10")
+    })
 });

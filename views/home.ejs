@@ -142,7 +142,21 @@
     <script>
         var socket = io('http://192.168.1.108:3001')
         socket.on('connection')
+        
+        var items = {}, queue = {}
+
+        window.onbeforeunload = ()=>{
+                localStorage.setItem('item', JSON.stringify(items))
+        }
+        window.onload = ()=>{
+            queue = JSON.parse(localStorage.getItem('item'))
+            alert(JSON.stringify(queue))
+        }
+        
+
         $(document).ready(()=> {
+            var id = 0
+
             $('#fname, #pet_type').keypress((event)=> {
                 if(!(event.which != 8 && isNaN(String.fromCharCode(event.which)))){
                     event.preventDefault(); //stop character from entering input
@@ -161,10 +175,10 @@
                 } else {
                 }
                 */
-               $('header').append(`<div class=\"w3-card card\">${$('#fname').val()}</div>`)
+               $('header').append(`<div id='${id}' class=\"w3-card card\">${$('#fname').val()}</div>`)
+               items[id] = $('#fname').val()
                $('input:text').val("")
-                
-
+               id = id + 1
                 
             })
         })

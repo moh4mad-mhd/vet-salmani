@@ -20,6 +20,10 @@ app.get('/doctor', (req, res) => {
     res.render('doctor')
 })
 
+app.get('/petshop', (req, res) => {
+    res.render('petshop')
+})
+
 server.listen(3001, '0.0.0.0', () => {
     console.log("server running...")
 })

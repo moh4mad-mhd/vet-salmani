@@ -2,6 +2,8 @@ body{
   height: 100%;
   overflow: auto;
   box-sizing: border-box;
+  background: rgb(6,196,18);
+  background: linear-gradient(90deg, rgba(6,196,18,1) 0%, rgba(121,121,121,0) 67%);
 }
 
 .container {

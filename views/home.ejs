@@ -25,8 +25,8 @@
 
         <div class="topnav">
             <a class="active" href="home.ejs">ثبت پرونده</a>
-            <a href="cases.ejs">پرونده ها</a>
-            <a href="petshop.ejs">پت شاپ</a>
+            <a href="cases">پرونده ها</a>
+            <a href="petshop" target="_blank">پت شاپ</a>
             <a href="paycheck.ejs">صورت حساب مالی</a>
         </div>
 
@@ -140,22 +140,38 @@
         autocomplete(document.getElementById("pet_type"), pet);
     </script>
     <script>
-        var socket = io('http://192.168.1.108:3001')
+        var socket = io('http://192.168.1.110:3001')
         socket.on('connection')
         
-        var items = {}, queue = {}
+        var items = [], queue = {}
 
         window.onbeforeunload = ()=>{
                 localStorage.setItem('item', JSON.stringify(items))
         }
         window.onload = ()=>{
             queue = JSON.parse(localStorage.getItem('item'))
-            alert(JSON.stringify(queue))
+            if (queue != null) {
+                for (let i = 0; i < queue.length; i++) {
+                    creatDiv(queue[i].id, queue[i].name)
+                    
+                }
+            }
+            
+            for (let i = 0; i < queue.length; i++) {
+                items[i] = queue[i];
+                
+            }
+            
         }
         
-
+        var id = 0
+        const creatDiv = (id, name)=>{
+            $('header').append(`<div id='${id}' class=\"w3-card card\">${name}</div>`)
+        }
+        
+        
         $(document).ready(()=> {
-            var id = 0
+
 
             $('#fname, #pet_type').keypress((event)=> {
                 if(!(event.which != 8 && isNaN(String.fromCharCode(event.which)))){
@@ -175,8 +191,8 @@
                 } else {
                 }
                 */
-               $('header').append(`<div id='${id}' class=\"w3-card card\">${$('#fname').val()}</div>`)
-               items[id] = $('#fname').val()
+               creatDiv(id, $('#fname').val())
+               items[id] = {"name": $('#fname').val()}
                $('input:text').val("")
                id = id + 1
                 

@@ -15,19 +15,30 @@
 
 <body>
 
-    <header class="w3-sidebar sidebar">
+    <header class="sidenav">
         <div class="w3-card card">
-            نوبت
+            <p>صف نوبت</p>
         </div>
+        <form action="/confirm" method="POST" class="w3-card card" id="queue"></ی>
+
+            <table>
+                <thead>
+                    <th>شماره</th>
+                    <th>نام</th>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </form>
     </header>
 
     <main class="centered">
 
         <div class="topnav">
-            <a class="active" href="home.ejs">ثبت پرونده</a>
+            <a class="active" href="home">ثبت پرونده</a>
             <a href="cases">پرونده ها</a>
             <a href="petshop" target="_blank">پت شاپ</a>
-            <a href="paycheck.ejs">صورت حساب مالی</a>
         </div>
 
 
@@ -126,7 +137,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="button" value="ثبت و ارسال برای دکتر"
+                            <input type="button" value="ثبت نوبت"
                                 class="w3-button w3-teal w3-round-large w3-hover-blue" id="submit">
                         </td>
                     </tr>
@@ -145,28 +156,36 @@
         
         var items = [], queue = {}
 
-        window.onbeforeunload = ()=>{
+        window.onbeforeunload = (event)=>{
                 localStorage.setItem('item', JSON.stringify(items))
         }
         window.onload = ()=>{
             queue = JSON.parse(localStorage.getItem('item'))
             if (queue != null) {
                 for (let i = 0; i < queue.length; i++) {
-                    creatDiv(queue[i].id, queue[i].name)
+                    creatDiv(i+1, queue[i].name)
                     
                 }
             }
-            
+            /*
+            //adding queue to items to store persons in queue
             for (let i = 0; i < queue.length; i++) {
                 items[i] = queue[i];
                 
             }
-            
+            */
         }
         
-        var id = 0
+        var id = JSON.parse(localStorage.getItem('item')).length + 1
         const creatDiv = (id, name)=>{
-            $('header').append(`<div id='${id}' class=\"w3-card card\">${name}</div>`)
+            $('header table tbody').append(`
+                    <tr id="${id}">
+                        <td>${id}</td>
+                        <td id="vname">${name}</td>
+                        <td>
+                            <button type="button" class="w3-button w3-round-large w3-teal btn-send" onClick="sendClick(${id-1})">ارسال</button>
+                        </td>
+                    </tr>`)
         }
         
         
@@ -174,7 +193,7 @@
 
 
             $('#fname, #pet_type').keypress((event)=> {
-                if(!(event.which != 8 && isNaN(String.fromCharCode(event.which)))){
+                if(!(event.which != 8 || event.which != 32 && isNaN(String.fromCharCode(event.which)))){
                     event.preventDefault(); //stop character from entering input
                 }
             })
@@ -192,11 +211,15 @@
                 }
                 */
                creatDiv(id, $('#fname').val())
-               items[id] = {"name": $('#fname').val()}
+               items[id-1] = {"name": $('#fname').val()}
                $('input:text').val("")
                id = id + 1
                 
             })
+
+            function sendClick(id) {
+                delete queue[i]
+            }
         })
     </script>
 </body>

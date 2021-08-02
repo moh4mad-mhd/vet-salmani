@@ -3,7 +3,7 @@ body{
   overflow: auto;
   box-sizing: border-box;
   background: rgb(6,196,18);
-  background: linear-gradient(90deg, rgba(6,196,18,1) 0%, rgba(121,121,121,0) 67%);
+  background: linear-gradient(90deg, rgba(6,196,18,0.7766456924566701) 0%, rgba(121,121,121,0) 67%);
 }
 
 .container {
@@ -38,7 +38,7 @@ body{
     color: white;
   }
 
-  tr, td {
+  form#case_form tr, form#case_form td {
     border-bottom: 1px solid #ddd;
     padding-bottom: 15px;
     padding-top: 15px;
@@ -121,13 +121,45 @@ body{
 
   .card {
     position: relative;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-right: 40px;
     margin-right: 10px;
     margin-left: 3px;
+    background: rgb(6,196,18);
+    background: linear-gradient(90deg, rgba(6,196,18,0.26404065043986347) 0%, rgba(121,121,121,0) 67%); 
   }
 
-  .sidebar {
+  .sidenav {
     padding-top: 70px;
     width: 250px !important;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    overflow-x: scroll;
+    padding-top: 20px;
+  }
+
+  .btn-send {
+    text-align: center;
+    font-size: 8pt;
+    width: 70px;
+  }
+
+  div#queue table {
+    position: relative;
+    margin: 1px;
+  }
+
+  div#queue table tbody tr.row, form#queue table tbody tr.row td {
+    border-bottom: 1px solid #ddd;
+  }
+
+  div#queue table tbody tr.row td {
+    white-space: normal;
+    width: 60px;
   }
 
   

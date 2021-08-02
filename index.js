@@ -8,6 +8,9 @@ app.use(express.static(__dirname))
 app.use(express.urlencoded())
 app.set('view engine', 'ejs')
 
+app.get('/', (req, res) => {
+    res.redirect('/home')
+})
 app.get('/home', (req, res) => {
     res.render('home')
 })
@@ -22,6 +25,11 @@ app.get('/doctor', (req, res) => {
 
 app.get('/petshop', (req, res) => {
     res.render('petshop')
+})
+
+//----ristrict routing--
+app.get('/:default', (req, res) => {
+    res.redirect('back')
 })
 
 server.listen(3001, '0.0.0.0', () => {

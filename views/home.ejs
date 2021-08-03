@@ -24,10 +24,10 @@
             <table>
                 <thead>
                     <th>شماره</th>
-                    <th>نام</th>
+                    <thead>نام</th>
                 </thead>
                 <tbody>
-
+                    
                 </tbody>
             </table>
         </div>
@@ -176,23 +176,21 @@
             */
         }
         
-        id = localStorage.getItem('counter') + 1
-        const creatDiv = (id, name)=>{
+        var creatDiv = (id, name)=>{
             $('header table tbody').append(`
-                    <tr id="${id}" class="collapse">
-                        <td>${id}</td>
-                        <td id="vname">${name}</td>
+                    <tr id="${id}">
+                        <td  class="collapse">${id}</td>
+                        <td>${name}</td>
                         <td>
-                            <button type="button" class="w3-button w3-round-large w3-teal btn-send" onClick="sendClick(${id-1})">ارسال</button>
+                            <input type="button" name="sendToDr" class="w3-button w3-round-large w3-teal" value="ارسال" onClick="sendDr(this)">
                         </td>
                     </tr>`)
         }
-
-        function sendClick(id) {
-                items.splice(id, 1)
-                document.querySelector('.collapse').style.visibility = "collapse"
-            }
         
+        function sendDr(o) {
+            var p = o.parentNode.parentNode;
+            p.parentNode.removeChild(p);
+        }
         
         $(document).ready(()=> {
 
@@ -218,9 +216,14 @@
                creatDiv(id, $('#fname').val())
                items[id-1] = {"name": $('#fname').val() }
                $('input:text').val("")
-               localStorage.setItem('counter', id)
                id = id + 1
                 
+            })
+
+            $('.btn-send').click(()=>{
+                $('header table tbody').find('td').each(()=>{
+                    $(this).parents('tr').remove()
+                })
             })
         })
     </script>

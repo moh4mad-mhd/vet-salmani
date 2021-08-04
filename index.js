@@ -23,8 +23,17 @@ app.get('/doctor', (req, res) => {
     res.render('doctor')
 })
 
+app.get('/cases', (req, res) => {
+    res.render('cases')
+})
+
 app.get('/petshop', (req, res) => {
     res.render('petshop')
+})
+
+app.post('/doctor/lastCaseNum', (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*")
+    res.send({ lastCaseNum: 10 })
 })
 
 //----ristrict routing--
@@ -46,5 +55,9 @@ io.on('connection', (socket) => {
 
     socket.on('getLastId', () => {
         socket.emit('getLastId', "10")
+    })
+
+    socket.on('sendDr', (data) => {
+        socket.broadcast.emit('sendDr', data)
     })
 });

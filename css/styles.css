@@ -110,10 +110,10 @@ body{
   }
 
   input:read-only{
-    background-color:darkgray;
+    background-color:rgba(218, 195, 195, 0.377);
   }
 
-  #lastId {
+  #lastCaseNum {
     position: relative;
     margin-top: 10px;
     margin-right: 30px;
@@ -161,5 +161,30 @@ body{
     white-space: normal;
     width: 60px;
   }
+  div.diagnose table tr td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 
+  #cases_table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
   
+  #cases_table td, #cases_table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #cases_table tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #cases_table tr:hover {background-color: #ddd;}
+  
+  #cases_table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #04AA6D;
+    color: white;
+  }

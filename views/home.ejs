@@ -24,7 +24,7 @@
             <table>
                 <thead>
                     <th>شماره</th>
-                    <thead>نام</th>
+                    <th>نام</th>
                 </thead>
                 <tbody>
                     
@@ -163,7 +163,7 @@
             queue = JSON.parse(localStorage.getItem('item'))
             if (queue != null) {
                 for (let i = 0; i < queue.length; i++) {
-                    creatDiv(i+1, queue[i].name)
+                    creatDiv(queue[i].id, queue[i].name)
                     
                 }
             }
@@ -182,14 +182,16 @@
                         <td  class="collapse">${id}</td>
                         <td>${name}</td>
                         <td>
-                            <input type="button" name="sendToDr" class="w3-button w3-round-large w3-teal" value="ارسال" onClick="sendDr(this)">
+                            <input type="button" name="sendToDr" class="w3-button w3-round-large w3-teal btn-send" value="ارسال" onClick="sendDr(this, ${id})">
                         </td>
                     </tr>`)
         }
         
-        function sendDr(o) {
+        function sendDr(o, id) {
             var p = o.parentNode.parentNode;
             p.parentNode.removeChild(p);
+            socket.emit('sendDr', items[id-1])
+            items.splice(id-1, 1)
         }
         
         $(document).ready(()=> {
@@ -214,16 +216,17 @@
                 }
                 */
                creatDiv(id, $('#fname').val())
-               items[id-1] = {"name": $('#fname').val() }
+               items[id-1] = {
+                    "id": id, 
+                    "name": $('#fname').val(),
+                    "pet_type": $('#pet_type').val(),
+                    "age": $('#age').val(),
+                    "gender": $('input[name="gender"]:checked').val(),
+                    "history": $('#history').val(),
+                    "case": $('#case').val() }
                $('input:text').val("")
                id = id + 1
                 
-            })
-
-            $('.btn-send').click(()=>{
-                $('header table tbody').find('td').each(()=>{
-                    $(this).parents('tr').remove()
-                })
             })
         })
     </script>

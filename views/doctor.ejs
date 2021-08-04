@@ -18,7 +18,8 @@
 
     <header class="sidenav">
 
-        <button type="button" class="w3-button w3-teal w3-round-large w3-hover-blue" id="lastId" onclick="getLastId()">شماره پرونده جدید</button>
+        <button type="button" class="w3-bar-item w3-button w3-teal w3-round-large w3-hover-blue" id="lastCaseNum">شماره پرونده جدید</button>
+        <a href="../doctor/manager" class="w3-bar-item w3-button">مدیریت</a>
     </header>
 
     <main class="centered dr-info">
@@ -33,7 +34,7 @@
                         </td>
                         <td class="td-input">
                             <input type="text" id="fname" name="fname" class="input w3-input w3-border w3-round-large"
-                                placeholder="نام و نام خانوادگی" readonly>
+                                placeholder="-" readonly>
                         </td>
                     </tr>
                     <tr>
@@ -43,7 +44,7 @@
                         <td class="autocomplete">
                             <div class="autocomplete">
                                 <input type="text" id="pet_type" class="input w3-input w3-border w3-round-large"
-                                    name="pet_type" placeholder="نوع حیوان" readonly>
+                                    name="pet_type" placeholder="-" readonly>
                             </div>
                         </td>
                         <td>
@@ -51,14 +52,14 @@
                         </td>
                         <td class="td-input">
                             <input type="text" class="input w3-input w3-border w3-round-large" id="age" name="age"
-                                placeholder="سن" readonly>
+                                placeholder="-" readonly>
                         </td>
                         <td>
                             <label for="gender" class="label">جنس:</label>
                         </td>
                         <td>
                             <input type="text" name="gender" id="gender" class="input w3-input w3-border w3-round-large"
-                                placeholder="جنس" readonly>
+                                placeholder="-" readonly>
                         </td>
                     </tr>
                     <tr>
@@ -67,14 +68,14 @@
                         </td>
                         <td>
                             <input class="input w3-input w3-border w3-round-large" id="history" name="history"
-                                placeholder="تاریخچه" readonly>
+                                placeholder="-" readonly>
                         </td>
                         <td>
                             <label for="case" class="label">شکایت اصلی:</label>
                         </td>
                         <td>
                             <input type="text" class="input w3-input w3-border w3-round-large" id="case" name="case"
-                                placeholder="شکایت اصلی" readonly>
+                                placeholder="-" readonly>
                         </td>
                     </tr>
                 </table>
@@ -211,13 +212,25 @@
 
         socket.on('connection')
 
-        const getLastId = () => {
-            socket.emit('getLastId')
-        }
-
-        socket.on('getLastId', (id)=>{
-            alert(id)
+        socket.on('sendDr', (data)=>{
+            //alert(data)
+            document.getElementById('fname').value = data.name
         })
+
+        $(document).ready(()=>{
+            $('#lastCaseNum').click(()=>{
+                $.ajax({
+                    type: "POST",
+                    url: 'http://192.168.1.110:3001/doctor/lastCaseNum',
+                    dataType: "json",
+                    success: (res, status)=>{
+                        alert(res.lastCaseNum)
+                    }
+
+                })
+            })
+        })
+
     </script>
 </body>
 

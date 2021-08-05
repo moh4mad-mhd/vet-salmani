@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <script src="../js/main.js"></script>
     <title>Dr Salmani | cases</title>
 </head>
@@ -16,13 +17,23 @@
     <header></header>
     <main class="centered">
         <div class="topnav">
-            <a class="active" href="home">ثبت پرونده</a>
-            <a href="cases">پرونده ها</a>
+            <a href="home">ثبت پرونده</a>
+            <a class="active" href="cases">پرونده ها</a>
             <a href="petshop" target="_blank">پت شاپ</a>
         </div>
 
         <div class="w3-container w3-card-4 w3-light-grey">
-            <table id="cases_table">
+            <table class="search_table">
+                <tr>
+                    <td>
+                        <label for="search">جستجو</label>
+                    </td>
+                    <td>
+                        <input type="text" name="search" id="search" placeholder="شماره پرونده، نام..." class="input w3-input w3-border w3-round-large">
+                    </td>
+                </tr>
+            </table>
+            <table id="cases_table" class="search_table">
                 <thead>
                     <th>شماره پرونده</th>
                     <th>نام و نام خانوادگی</th>
@@ -30,17 +41,23 @@
                     <th>سن</th>
                     <th>شماره تلفن</th>
                     <th>آدرس</th>
+                    <th>ویرایش</th>
+                    <th>ثبت پرونده</th>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Alfreds Futterkiste</td>
-                        <td>Maria Anders</td>
-                        <td>Germany</td>
-                      </tr>
-                      <tr>
-                        <td>Berglunds snabbköp</td>
-                        <td>Christina Berglund</td>
-                        <td>Sweden</td>
+                        <td>99</td>
+                        <td>محمد محمدی</td>
+                        <td>سگ</td>
+                        <td>2 ماه</td>
+                        <td>09378878173</td>
+                        <td>کرمانشاه</td>
+                        <td style="text-align: center;">
+                            <button type="button" class="w3-button w3-round-large w3-indigo">ویرایش <i class='fas fa-user-edit'></i></button>
+                        </td>
+                        <td style="text-align: center;">
+                            <button type="button" class="w3-button w3-round-large w3-green">ثبت پرونده <i class='fas fa-user-plus'></i></button>
+                        </td>
                       </tr>
                 </tbody>
             </table>

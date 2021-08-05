@@ -26,7 +26,7 @@
                     <th>نام</th>
                 </thead>
                 <tbody>
-                    
+
                 </tbody>
             </table>
         </div>
@@ -41,12 +41,14 @@
         </div>
 
 
-        <form autocomplete="off" action="/home" method="post" class="w3-container w3-card-4 w3-light-grey" id="case_form">
+        <form autocomplete="off" action="/home" method="post" class="w3-container w3-card-4 w3-light-grey"
+            id="case_form" onsubmit="return validate()" target="_new">
             <div id="new-case">
                 <table>
                     <tr>
                         <td>
-                            <button type="button" class="w3-button w3-round-large w3-green btn-new-case" onclick="new_case()">پرونده ی
+                            <button type="button" class="w3-button w3-round-large w3-green btn-new-case"
+                                onclick="new_case()">پرونده ی
                                 جدید</button>
                         </td>
                     </tr>
@@ -136,8 +138,8 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="button" value="ثبت نوبت"
-                                class="w3-button w3-teal w3-round-large w3-hover-blue" id="submit">
+                            <input type="submit" value="ثبت نوبت" class="w3-button w3-teal w3-round-large w3-hover-blue"
+                                id="submit">
                         </td>
                     </tr>
                 </table>
@@ -152,18 +154,18 @@
     <script>
         var socket = io('http://192.168.1.110:3001')
         socket.on('connection')
-        
+
         var items = [], queue = {}, id = genID()
 
-        window.onbeforeunload = (event)=>{
-                localStorage.setItem('item', JSON.stringify(items))
+        window.onbeforeunload = (event) => {
+            localStorage.setItem('item', JSON.stringify(items))
         }
-        window.onload = ()=>{
+        window.onload = () => {
             queue = JSON.parse(localStorage.getItem('item'))
             if (queue != null) {
                 for (let i = 0; i < queue.length; i++) {
                     creatDiv(queue[i].id, queue[i].name)
-                    
+
                 }
             }
             /*
@@ -174,8 +176,8 @@
             }
             */
         }
-        
-        var creatDiv = (id, name)=>{
+
+        var creatDiv = (id, name) => {
             $('header table tbody').append(`
                     <tr id="${id}">
                         <td>${name}</td>
@@ -186,29 +188,29 @@
         }
 
         function genID() { return Math.random().toString(36).substring(2) }
-        
+
         function sendDr(o, id) {
             var p = o.parentNode.parentNode;
             p.parentNode.removeChild(p);
-            var i = items.filter(function(el){return el.id == id})[0]
+            var i = items.filter(function (el) { return el.id == id })[0]
             socket.emit('sendDr', i)
             items.splice(items.indexOf(i), 1)
         }
-        
-        $(document).ready(()=> {
+
+        $(document).ready(() => {
 
 
-            $('#fname, #pet_type').keypress((event)=> {
-                if(!(event.which != 8 || event.which != 32 && isNaN(String.fromCharCode(event.which)))){
+            $('#fname, #pet_type').keypress((event) => {
+                if (!(event.which != 8 || event.which != 32 && isNaN(String.fromCharCode(event.which)))) {
                     event.preventDefault(); //stop character from entering input
                 }
             })
-            $('#tel').keypress((event)=>{
-                if(event.which != 8 && isNaN(String.fromCharCode(event.which))){
+            $('#tel').keypress((event) => {
+                if (event.which != 8 && isNaN(String.fromCharCode(event.which))) {
                     event.preventDefault(); //stop character from entering input
                 }
             })
-            $('#submit').click((event)=>{
+            $('#submit').click((event) => {
                 /*
                 if (!($('#fname').val(), $('#pet_type').val(), $('#address').val(), $('#tel').val())) {
                     alert("مقادیر نام و نام خانوادگی، نوع حیوان، آدرس و شماره تلفن الزامی است")
@@ -216,18 +218,19 @@
                 } else {
                 }
                 */
-               creatDiv(id, $('#fname').val())
-               items.push({
-                    "id": id, 
+                creatDiv(id, $('#fname').val())
+                items.push({
+                    "id": id,
                     "name": $('#fname').val(),
                     "pet_type": $('#pet_type').val(),
                     "age": $('#age').val(),
                     "gender": $('input[name="gender"]:checked').val(),
                     "history": $('#history').val(),
-                    "case": $('#case').val() })
-               $('input:text').val("")
-               id = genID()
-                
+                    "case": $('#case').val()
+                })
+                $('input:text').val("")
+                id = genID()
+
             })
         })
     </script>

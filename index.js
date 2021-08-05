@@ -9,6 +9,15 @@ app.use(express.static(__dirname))
 app.use(express.urlencoded())
 app.set('view engine', 'ejs')
 
+function validate() {
+    if (2 > 3) {
+        return false
+    }
+    else {
+        return true
+    }
+}
+
 app.get('/', (req, res) => {
     res.redirect('/home')
 })

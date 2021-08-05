@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
+    <script src="https://cdn.socket.io/3.0.5/socket.io.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../js/main.js"></script>
     <title>Dr Salmani</title>
@@ -42,7 +42,7 @@
 
 
         <form autocomplete="off" action="/home" method="post" class="w3-container w3-card-4 w3-light-grey"
-            id="case_form" onsubmit="return validate()" target="_new">
+            id="case_form" target="_new">
             <div id="new-case">
                 <table>
                     <tr>
@@ -189,6 +189,7 @@
 
         function genID() { return Math.random().toString(36).substring(2) }
 
+        /*
         function sendDr(o, id) {
             var p = o.parentNode.parentNode;
             p.parentNode.removeChild(p);
@@ -196,10 +197,20 @@
             socket.emit('sendDr', i)
             items.splice(items.indexOf(i), 1)
         }
+        */
 
         $(document).ready(() => {
 
-
+            $(function(){
+                sendDr = (o, id)=>{
+                    var p = o.parentNode.parentNode;
+                    p.parentNode.removeChild(p);
+                    var i = items.filter(function (el) { return el.id == id.id })[0]
+                    console.log(i)
+                    socket.emit('sendDr', i)
+                    items.splice(items.indexOf(i), 1)
+                }
+            })
             $('#fname, #pet_type').keypress((event) => {
                 if (!(event.which != 8 || event.which != 32 && isNaN(String.fromCharCode(event.which)))) {
                     event.preventDefault(); //stop character from entering input

@@ -25,7 +25,7 @@ app.get('/doctor', (req, res) => {
 })
 
 app.get('/cases', (req, res) => {
-    res.render('cases')
+    res.render('cases', { disabled: 'disabled', name: 'mohamad' })
 })
 
 app.get('/petshop', (req, res) => {
@@ -59,6 +59,7 @@ io.on('connection', (socket) => {
     })
 
     socket.on('sendDr', (data) => {
+        console.log("data:" + data)
         socket.broadcast.emit('sendDr', data)
     })
 });

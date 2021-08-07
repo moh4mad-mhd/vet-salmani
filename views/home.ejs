@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <script src="https://cdn.socket.io/3.0.5/socket.io.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <script src="../js/main.js"></script>
+    <script src="../js/home.js"></script>
     <title>Dr Salmani</title>
 </head>
 
@@ -85,11 +85,11 @@
                         </td>
                         <td>
                             <label for="male">نر</label>
-                            <input type="radio" name="gender" id="male" value="male" class="w3-radio">
+                            <input type="radio" name="gender" id="male" value="نر" class="w3-radio">
                         </td>
                         <td>
                             <label for="female">ماده</label>
-                            <input type="radio" name="gender" id="female" value="female" class="w3-radio">
+                            <input type="radio" name="gender" id="female" value="ماده" class="w3-radio">
                         </td>
                     </tr>
                     <tr>
@@ -139,61 +139,5 @@
     <script>
         autocomplete(document.getElementById("pet_type"), pet);
     </script>
-    <script>
-        var socket = io('http://192.168.1.106:3001')
-        socket.on('connection')
-
-        $(document).ready(() => {
-
-            $('#fname, #pet_type').keypress((event) => {
-                if (!(event.which != 8 || event.which != 32 && isNaN(String.fromCharCode(event.which)))) {
-                    event.preventDefault(); //stop character from entering input
-                }
-            })
-            $('#tel').keypress((event) => {
-                if (event.which != 8 && isNaN(String.fromCharCode(event.which))) {
-                    event.preventDefault(); //stop character from entering input
-                }
-            })
-            $('#submit').click((event) => {
-                /*
-                if (!($('#fname').val(), $('#pet_type').val(), $('#address').val(), $('#tel').val())) {
-                    alert("مقادیر نام و نام خانوادگی، نوع حیوان، آدرس و شماره تلفن الزامی است")
-                    event.preventDefault()
-                } else {
-                }
-                */
-               if ($('#case').val() == 'ویزیت') {
-                   $.get('/visit', (confirmed)=>{
-                       alert(confirmed)
-                   })
-                   event.preventDefault()
-                   $('input:text').val("")
-               }
-
-            })
-
-            $(function(){
-                new_case = ()=>{
-                    $.ajax({
-                        url: '/getLastNum',
-                        data: '',
-                        type: 'GET',
-                        success: (data)=>{
-                            $('#case_number').text(data)
-                        }
-                    })
-                    $('#cases').css('visibility', 'visible')
-                    $('#new_case').css('visibility', 'collapse')
-                }
-
-                close_case = ()=>{
-                    $('#new_case').css('visibility', 'visible')
-                    $('#cases').css('visibility', 'collapse')
-                }
-            })
-        })
-    </script>
 </body>
-
 </html>

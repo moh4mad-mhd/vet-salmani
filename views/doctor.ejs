@@ -8,9 +8,8 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css">
-    <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
+    <script src="https://cdn.socket.io/3.0.5/socket.io.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../js/main.js"></script>
     <title>Dr Salmani</title>
 </head>
 
@@ -19,7 +18,6 @@
     <header class="sidenav">
 
         <button type="button" class="w3-bar-item w3-button w3-teal w3-round-large w3-hover-blue" id="lastCaseNum">شماره پرونده جدید</button>
-        <a href="../doctor/manager" class="w3-bar-item w3-button">مدیریت</a>
     </header>
 
     <main class="centered dr-info">
@@ -106,7 +104,7 @@
         </div>
 
         <div class="w3-container w3-card-4 w3-light-grey diagnose container">
-            <table class="table w3-striped">
+            <table class="search_table cases_table" >
                 <thead>
                     <tr>
                         <th scope="col">خدمات</th>
@@ -206,9 +204,8 @@
     <footer></footer>
 
     <script>
-        autocomplete(document.getElementById("pet_type"), pet);
 
-        var socket = io('http://192.168.1.110:3001')
+        var socket = io('http://192.168.1.108:3001')
 
         socket.on('connection')
 
@@ -221,7 +218,7 @@
             $('#lastCaseNum').click(()=>{
                 $.ajax({
                     type: "POST",
-                    url: 'http://192.168.1.110:3001/doctor/lastCaseNum',
+                    url: 'http://192.168.1.108:3001/doctor/lastCaseNum',
                     dataType: "json",
                     success: (res, status)=>{
                         alert(res.lastCaseNum)

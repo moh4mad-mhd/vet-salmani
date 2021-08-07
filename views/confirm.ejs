@@ -7,9 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
+    <script src="https://cdn.socket.io/3.0.5/socket.io.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../js/main.js"></script>
     <title><%- name %></title>
 </head>
 
@@ -51,6 +50,13 @@
                             <input type="text" class="input w3-input w3-border w3-round-large" id="age" name="age"
                                 readonly value='<%- age %>'>
                         </td>
+                        <td>
+                            <label for="gender" class="label">جنس:</label>
+                        </td>
+                        <td>
+                            <input type="text" name="gender" id="gender" class="input w3-input w3-border w3-round-large"
+                                placeholder="-" value="<%- gender %>" readonly>
+                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -71,11 +77,31 @@
                 </table>
             </div>
         </div>
+        <div class="w3-container w3-card-4 w3-light-grey" style="margin-top: 15px; padding-top: 5px;">
+            <table class="search_table cases_table">
+                <thead>
+                    <th>خدمات</th>
+                    <!-- render the data comming from doctor -->
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>قیمت</th>
+                        <!-- render data comming from doctor -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </main>
     <footer></footer>
     <script>
-        var socket = io()
-        socket.on('connection')
+        $(document).ready(()=>{
+            var socket = io('http://192.168.1.108:3001')
+            socket.on('connection')
+
+            socket.on('confirmData', (data)=>{
+                
+            })
+        })
     </script>
 </body>
 

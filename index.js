@@ -33,27 +33,25 @@ app.get('/visit', (req, res) => {
 })
 
 app.post('/home', (req, res) => {
-    var fname = req.body.fname
-    var pet = req.body.pet_type
-    var age = req.body.age
-    var gender = req.body.gender
-    var tel = req.body.tel
-    var address = req.body.address
-    var history = req.body.history
-    var vcase = req.body.case
-
+    // add data to the visit table in database
     var data = {
-        name: fname,
-        pet_type: pet,
-        age: age,
-        his: history,
-        visit_case: vcase
+        name: req.body.fname,
+        pet_type: req.body.pet_type,
+        age: req.body.age,
+        gender: req.body.gender,
+        his: req.body.history,
+        visit_case: req.body.case
     }
     res.render('confirm', data)
 })
 
 app.get('/getLastNum', (req, res) => {
     res.send('100')
+})
+
+app.post('/addNew', (req, res) => {
+    // add values to cases and visit cases table in database
+    res.send("پرونده ی جدید ثبت شد")
 })
 
 app.get('/doctor', (req, res) => {
@@ -66,6 +64,10 @@ app.get('/cases', (req, res) => {
 
 app.get('/petshop', (req, res) => {
     res.render('petshop')
+})
+
+app.get('/confirm', (req, res) => {
+    res.render('confirm', { name: "test" })
 })
 
 app.post('/doctor/lastCaseNum', (req, res) => {

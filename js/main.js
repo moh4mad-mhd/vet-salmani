@@ -1,5 +1,3 @@
-
-
 var pet = ["گربه", "سگ", "کبوتر", "خرگوش", "عروس هلندی", "قناری", "مرغ مینا", "لاکپشت", "پرنده", "یاکریم", "جوجه", "عقاب"]
 function autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,
@@ -97,9 +95,3 @@ function autocomplete(inp, arr) {
         closeAllLists(e.target);
     });
 }
-/*
-function new_case() {
-    document.getElementById("cases").style.visibility = "visible";
-    document.getElementById("new-case").style.visibility = "collapse";
-}
-*/

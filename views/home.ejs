@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://cdn.socket.io/3.0.5/socket.io.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <script src="../js/main.js"></script>
     <title>Dr Salmani</title>
 </head>
@@ -29,7 +30,7 @@
 
         <form autocomplete="off" action="/home" method="post" class="w3-container w3-card-4 w3-light-grey"
             id="case_form" target="_blank">
-            <div id="new-case">
+            <div id="new_case">
                 <table>
                     <tr>
                         <td>
@@ -45,7 +46,8 @@
                 <table>
                     <tr>
                         <td>شماره پرونده:</td>
-                        <td id="case_number">1080</td>
+                        <td id="case_number"></td>
+                        <td style="padding-right: 5px;" onclick="close_case()"><i style='font-size:14px' class='fas'>&#xf00d;</i></td>
                     </tr>
                 </table>
             </div>
@@ -171,9 +173,24 @@
 
             })
 
-            $(function new_case() {
-                $('#new_case').css('visibility', 'collapse')
-                $('#cases').css('visibility', 'visible')
+            $(function(){
+                new_case = ()=>{
+                    $.ajax({
+                        url: '/getLastNum',
+                        data: '',
+                        type: 'GET',
+                        success: (data)=>{
+                            $('#case_number').text(data)
+                        }
+                    })
+                    $('#cases').css('visibility', 'visible')
+                    $('#new_case').css('visibility', 'collapse')
+                }
+
+                close_case = ()=>{
+                    $('#new_case').css('visibility', 'visible')
+                    $('#cases').css('visibility', 'collapse')
+                }
             })
         })
     </script>

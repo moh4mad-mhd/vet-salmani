@@ -52,6 +52,10 @@ app.post('/home', (req, res) => {
     res.render('confirm', data)
 })
 
+app.get('/getLastNum', (req, res) => {
+    res.send('100')
+})
+
 app.get('/doctor', (req, res) => {
     res.render('doctor')
 })

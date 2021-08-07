@@ -1,3 +1,4 @@
+const { json } = require('express')
 const express = require('express')
 const app = express()
 const server = require('http').createServer(app)
@@ -25,8 +26,30 @@ app.get('/home', (req, res) => {
     res.render('home')
 })
 
+app.get('/visit', (req, res) => {
+    // add a single visit to cases table in database
+    console.log('a visit case confirmed')
+    res.send('یک ویزیت ثبت شد')
+})
+
 app.post('/home', (req, res) => {
-    res.render('confirm')
+    var fname = req.body.fname
+    var pet = req.body.pet_type
+    var age = req.body.age
+    var gender = req.body.gender
+    var tel = req.body.tel
+    var address = req.body.address
+    var history = req.body.history
+    var vcase = req.body.case
+
+    var data = {
+        name: fname,
+        pet_type: pet,
+        age: age,
+        his: history,
+        visit_case: vcase
+    }
+    res.render('confirm', data)
 })
 
 app.get('/doctor', (req, res) => {

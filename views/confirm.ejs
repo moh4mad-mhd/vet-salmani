@@ -10,7 +10,7 @@
     <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../js/main.js"></script>
-    <title>Dr Salmani</title>
+    <title><%- name %></title>
 </head>
 
 <body>
@@ -21,6 +21,55 @@
 
         <div class="topnav">
             <a class="active" href="home">ثبت پرونده</a>
+        </div>
+        <div class="w3-container w3-card-4 w3-light-grey">
+            <div class="info">
+                <table>
+                    <tr>
+                        <td>
+                            <label for="fname" class="label">نام و نام خانوادگی:</label>
+                        </td>
+                        <td class="td-input">
+                            <input type="text" id="fname" name="fname" class="input w3-input w3-border w3-round-large" readonly
+                                value='<%- name %>'>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="pet_type" class="label">نوع حیوان:</label>
+                        </td>
+                        <td>
+                            <div>
+                                <input type="text" id="pet_type" class="input w3-input w3-border w3-round-large"
+                                    name="pet_type" readonly value='<%- pet_type %>'>
+                            </div>
+                        </td>
+                        <td>
+                            <label for="age" class="label">سن:</label>
+                        </td>
+                        <td class="td-input">
+                            <input type="text" class="input w3-input w3-border w3-round-large" id="age" name="age"
+                                readonly value='<%- age %>'>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="history" class="label">تاریخچه:</label>
+                        </td>
+                        <td>
+                            <input class="input w3-input w3-border w3-round-large" id="history" name="history"
+                                readonly value='<%- his %>'>
+                        </td>
+                        <td>
+                            <label for="case" class="label">شکایت اصلی:</label>
+                        </td>
+                        <td>
+                            <input type="text" class="input w3-input w3-border w3-round-large" id="case" name="case"
+                                readonly value='<%- visit_case %>'>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </main>
     <footer></footer>

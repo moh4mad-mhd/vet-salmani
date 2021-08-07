@@ -97,8 +97,9 @@ function autocomplete(inp, arr) {
         closeAllLists(e.target);
     });
 }
-
+/*
 function new_case() {
     document.getElementById("cases").style.visibility = "visible";
     document.getElementById("new-case").style.visibility = "collapse";
 }
+*/

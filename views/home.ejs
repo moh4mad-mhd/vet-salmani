@@ -15,21 +15,7 @@
 
 <body>
 
-    <header class="sidenav">
-        <div class="w3-card card">
-            <p>صف نوبت</p>
-        </div>
-        <div class="w3-card card" id="queue">
-
-            <table>
-                <thead>
-                    <th>نام</th>
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table>
-        </div>
+    <header>
     </header>
 
     <main class="centered">
@@ -42,7 +28,7 @@
 
 
         <form autocomplete="off" action="/home" method="post" class="w3-container w3-card-4 w3-light-grey"
-            id="case_form" target="_new">
+            id="case_form" target="_blank">
             <div id="new-case">
                 <table>
                     <tr>
@@ -109,7 +95,7 @@
                             <label for="address" class="label">آدرس:</label>
                         </td>
                         <td>
-                            <input type="textarea" class="input w3-input w3-border w3-round-large" id="address"
+                            <input type="text" class="input w3-input w3-border w3-round-large" id="address"
                                 name="address" placeholder="آدرس">
                         </td>
                         <td>
@@ -152,65 +138,11 @@
         autocomplete(document.getElementById("pet_type"), pet);
     </script>
     <script>
-        var socket = io('http://192.168.1.110:3001')
+        var socket = io('http://192.168.1.106:3001')
         socket.on('connection')
-
-        var items = [], queue = {}, id = genID()
-
-        window.onbeforeunload = (event) => {
-            localStorage.setItem('item', JSON.stringify(items))
-        }
-        window.onload = () => {
-            queue = JSON.parse(localStorage.getItem('item'))
-            if (queue != null) {
-                for (let i = 0; i < queue.length; i++) {
-                    creatDiv(queue[i].id, queue[i].name)
-
-                }
-            }
-            /*
-            //adding queue to items to store persons in queue
-            for (let i = 0; i < queue.length; i++) {
-                items[i] = queue[i];
-                
-            }
-            */
-        }
-
-        var creatDiv = (id, name) => {
-            $('header table tbody').append(`
-                    <tr id="${id}">
-                        <td>${name}</td>
-                        <td>
-                            <input type="button" name="sendToDr" class="w3-button w3-round-large w3-teal btn-send" value=" ارسال به دکتر" onClick="sendDr(this, ${id})">
-                        </td>
-                    </tr>`)
-        }
-
-        function genID() { return Math.random().toString(36).substring(2) }
-
-        /*
-        function sendDr(o, id) {
-            var p = o.parentNode.parentNode;
-            p.parentNode.removeChild(p);
-            var i = items.filter(function (el) { return el.id == id })[0]
-            socket.emit('sendDr', i)
-            items.splice(items.indexOf(i), 1)
-        }
-        */
 
         $(document).ready(() => {
 
-            $(function(){
-                sendDr = (o, id)=>{
-                    var p = o.parentNode.parentNode;
-                    p.parentNode.removeChild(p);
-                    var i = items.filter(function (el) { return el.id == id.id })[0]
-                    console.log(i)
-                    socket.emit('sendDr', i)
-                    items.splice(items.indexOf(i), 1)
-                }
-            })
             $('#fname, #pet_type').keypress((event) => {
                 if (!(event.which != 8 || event.which != 32 && isNaN(String.fromCharCode(event.which)))) {
                     event.preventDefault(); //stop character from entering input
@@ -229,19 +161,19 @@
                 } else {
                 }
                 */
-                creatDiv(id, $('#fname').val())
-                items.push({
-                    "id": id,
-                    "name": $('#fname').val(),
-                    "pet_type": $('#pet_type').val(),
-                    "age": $('#age').val(),
-                    "gender": $('input[name="gender"]:checked').val(),
-                    "history": $('#history').val(),
-                    "case": $('#case').val()
-                })
-                $('input:text').val("")
-                id = genID()
+               if ($('#case').val() == 'ویزیت') {
+                   $.get('/visit', (confirmed)=>{
+                       alert(confirmed)
+                   })
+                   event.preventDefault()
+                   $('input:text').val("")
+               }
 
+            })
+
+            $(function new_case() {
+                $('#new_case').css('visibility', 'collapse')
+                $('#cases').css('visibility', 'visible')
             })
         })
     </script>

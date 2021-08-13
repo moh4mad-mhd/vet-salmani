@@ -100,4 +100,8 @@ io.on('connection', (socket) => {
         console.log("data:" + data)
         socket.broadcast.emit('sendDr', data)
     })
+
+    socket.on('confirmData', (data) => {
+        console.log('data: ' + JSON.stringify(data))
+    })
 });

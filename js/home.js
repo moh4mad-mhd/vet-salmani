@@ -24,7 +24,8 @@ $(document).ready(() => {
         else if (!($('#fname').val(), $('#pet_type').val(), $('#address').val(), $('#tel').val())) {
             alert("مقادیر نام و نام خانوادگی، نوع حیوان، آدرس و شماره تلفن الزامی است")
             event.preventDefault()
-        } else if (new_case_flag) {
+        }
+        if (new_case_flag) {
             var data = {
                 case_number: $('#case_number').text(),
                 fname: $('#fname').val(),

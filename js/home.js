@@ -1,4 +1,8 @@
 $(document).ready(() => {
+    var socket = io('http://192.168.1.105:3001')
+
+    socket.on('connection')
+
     var new_case_flag = false
 
     $('#fname, #pet_type').keypress((event) => {
@@ -13,6 +17,17 @@ $(document).ready(() => {
     })
     $('#submit').click((event) => {
 
+        var data = {
+            case_number: $('#case_number').text(),
+            fname: $('#fname').val(),
+            pet_type: $('#pet_type').val(),
+            age: $('#age').val(),
+            gender: $('input[name="gender"]:checked').val(),
+            tel: $('#tel').val(),
+            address: $('#address').val()
+        }
+        socket.emit('sendDr', JSON.stringify(data))
+
         if ($('#case').val() == 'ویزیت') {
             $.get('/visit', (confirmed) => {
                 alert(confirmed)
@@ -20,28 +35,20 @@ $(document).ready(() => {
             event.preventDefault()
             $('input:text').val("")
         }
-
+        /*
         else if (!($('#fname').val(), $('#pet_type').val(), $('#address').val(), $('#tel').val())) {
             alert("مقادیر نام و نام خانوادگی، نوع حیوان، آدرس و شماره تلفن الزامی است")
             event.preventDefault()
         }
+        */
         if (new_case_flag) {
-            var data = {
-                case_number: $('#case_number').text(),
-                fname: $('#fname').val(),
-                pet_type: $('#pet_type').val(),
-                age: $('#age').val(),
-                gender: $('input[name="gender"]:checked').val(),
-                tel: $('#tel').val(),
-                address: $('#address').val()
-            }
+
 
             $.post('/addNew', data, (confirmed) => {
                 alert(confirmed)
             })
             $('input:text').val("")
         }
-
 
 
     })

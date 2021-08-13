@@ -74,26 +74,97 @@
                                 readonly value='<%- visit_case %>'>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <input type="button" value="ارسال به دکتر" class="w3-button w3-teal w3-round-large w3-hover-blue" id="submit">
-                        </td>
-                    </tr>
                 </table>
             </div>
         </div>
         <div class="w3-container w3-card-4 w3-light-grey" style="margin-top: 15px; padding-top: 5px;">
-            <table class="search_table cases_table">
-                <thead>
-                    <th>خدمات</th>
-                    <!-- render the data comming from doctor -->
-                </thead>
-                <tbody>
+            
+            <div class="container row">
+                <div class="column">
+                    <table class="search_table cases_table">
+                        <thead>
+                            <th>خدمات</th>
+                            <!-- render the data comming from doctor -->
+                            <th>قیمت</th>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="column">
+                    <table class="search_table cases_table" id="drug_table">
+                        <thead>
+                            <th>
+                                نام دارو
+                            </th>
+                            <th>
+                                قیمت (تومان)
+                            </th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input type="text" name="drug" class="input w3-input w3-border w3-round-large" placeholder="نام دارو">
+                                </td>
+                                <td>
+                                    <input type="text" name="price" class="input w3-input w3-border w3-round-large" placeholder="قیمت">
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            
+            <table class="container info confirm">
+                <tr>
+                    <td style="text-align: left;"><label for="total">جمع کل:</label></td>
+                    <td>
+                        <input type="text" id="total" style="text-align: center;" value="0" class="input w3-input w3-border w3-round-large total" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">
+                        <label for="responsible">مسئول پرونده:</label>
+                    </td>
+                    <td>
+                        <select class="w3-select w3-border" name="responsible" id="responsible">
+                            <option value="1" disabled selected>مسئول پرونده</option>
+                            <option value="2">خانم محمودی</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">
+                        <label for="deposit">بیعانه:</label>
+                    </td>
+                    <td>
+                        <input class="input w3-input w3-border w3-round-large" type="text" name="deposit" id="deposit" placeholder="بیعانه">
+                    </td>
+                    <td>
+                        <p>روش پرداخت:</p>
+                    </td>
+                    <td>
+                        <label for="cash">نقد</label>
+                        <input type="radio" name="pay_method" id="cash" value="نقد" class="w3-radio">
+                    </td>
+                    <td>
+                        <label for="transfer">انتقال</label>
+                        <input type="radio" name="pay_method" id="transfer" value="انتقال" class="w3-radio">
+                    </td>
+                    <td>
+                        <label for="card">کارتخوان</label>
+                        <input type="radio" name="pay_method" id="card" value="کارتخوان" class="w3-radio">
+                    </td>
+                </tr>
+                <tfoot>
                     <tr>
-                        <th>قیمت</th>
-                        <!-- render data comming from doctor -->
+                        <td>
+                            <input id="sendSubmit" type="button" value="ثبت اطلاعات" class="w3-button w3-round-large w3-green">
+                        </td>
                     </tr>
-                </tbody>
+                </tfoot>
             </table>
         </div>
     </main>

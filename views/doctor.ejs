@@ -316,7 +316,8 @@
 
         socket.on('sendDr', (data)=>{
             //alert(data)
-            document.getElementById('fname').value = data.name
+            var dt = JSON.parse(data)
+            document.getElementById('fname').value = dt.fname
         })
         var el = document.querySelector('input.price');
         el.addEventListener('keyup', function (event) {

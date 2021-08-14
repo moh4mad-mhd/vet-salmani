@@ -102,16 +102,19 @@
                             </th>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    <input type="text" name="drug" class="input w3-input w3-border w3-round-large" placeholder="نام دارو">
-                                </td>
-                                <td>
-                                    <input type="text" name="price" class="input w3-input w3-border w3-round-large" placeholder="قیمت">
-                                </td>
-                            </tr>
+                            
                             
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <td  style="text-align: center;">
+                                    <label for="total_drug" class="input w3-round-large">جمع کل داروها</label>
+                                </td>
+                                <td>
+                                    <input type="text" name="price" class="input w3-input w3-border w3-round-large" placeholder="قیمت" readonly>
+                                </td>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div>
             </div>
@@ -175,7 +178,27 @@
             socket.on('connection')
 
             socket.on('confirmData', (data)=>{
-                
+                let dt = JSON.parse(data)
+                for (let i = 0; i < dt.length; i++) {
+                    if (dt[i].name == "drug") {
+                        $('#drug_table tbody').append(`
+                                <tr>
+                                    <td>
+                                        <input type="text" name="drug" class="input w3-input w3-border w3-round-large" value="${dt[i].value}" readonly>
+                                    </td>
+                                    <td>
+                                        <input type="text" name="price" class="input w3-input w3-border w3-round-large" value="${dt[i+1].value}" readonly>
+                                    </td>
+                                </tr>
+                        
+                        `)
+                        //append data to drug table
+                    }
+                    else {
+                        //append data to confirm data table
+                    }
+                  
+                }  
             })
         })
     </script>

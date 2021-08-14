@@ -102,6 +102,7 @@ io.on('connection', (socket) => {
     })
 
     socket.on('confirmData', (data) => {
+        socket.broadcast.emit('confirmData', JSON.stringify(data))
         console.log('data: ' + JSON.stringify(data))
     })
 });

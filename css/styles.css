@@ -112,7 +112,7 @@ body{
   }
 
   input:read-only{
-    background-color:rgba(218, 195, 195, 0.377);
+    background-color:rgba(216, 216, 216, 0.377);
   }
 
   #lastCaseNum {

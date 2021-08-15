@@ -10,7 +10,7 @@
     <script src="https://cdn.socket.io/3.0.5/socket.io.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-    <script src="https://unpkg.com/jalali-moment/dist/jalali-moment.browser.js"></script>
+    <!--<script src="https://unpkg.com/jalali-moment/dist/jalali-moment.browser.js"></script>-->
     <script src="../js/main.js"></script>
     <script src="../js/home.js"></script>
     <title>Dr Salmani</title>
@@ -26,7 +26,6 @@
     </header>
 
     <main class="centered">
-        <div id="date"></div>
 
         <div class="topnav">
             <a class="active" href="home">ثبت پرونده</a>
@@ -134,8 +133,8 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="submit" value="ثبت نوبت" class="w3-button w3-teal w3-round-large w3-hover-blue"
-                                id="submit">
+                            <input type="submit" value="ثبت و ارسال"
+                                class="w3-button w3-teal w3-round-large w3-hover-blue" id="submit">
                         </td>
                     </tr>
                 </table>
@@ -146,8 +145,6 @@
 
     <script>
         autocomplete(document.getElementById("pet_type"), pet);
-        document.getElementById('date').innerHTML = moment().locale('fa').format('YYYY-MM-DD')
-
     </script>
 </body>
 

@@ -4,7 +4,6 @@ const moment = require('jalali-moment')
 const app = express()
 const server = require('http').createServer(app)
 const io = require('socket.io')(server, { cors: { origin: "*" } })
-let date = new Date().toLocaleDateString('fa-IR').replace(/([۰-۹])/g, token => String.fromCharCode(token.charCodeAt(0) - 1728))
 
 app.use(express.json())
 app.use(express.static(__dirname))
@@ -94,7 +93,7 @@ io.on('connection', (socket) => {
     })
 
     socket.on('confirmData', (data) => {
-        console.log(moment.from(data[0].value, 'fa', 'YYYY/MM/DD').format('YYYY-MM-DD'))
+        console.log(moment.from(data[2].value, 'fa', 'YYYY/MM/DD').format('YYYY-MM-DD'))
         socket.broadcast.emit('confirmData', JSON.stringify(data))
         console.log('data: ' + JSON.stringify(data))
     })

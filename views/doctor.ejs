@@ -20,7 +20,8 @@
 
     <header class="sidenav">
 
-        <button type="button" class="w3-bar-item w3-button w3-teal w3-round-large w3-hover-blue" id="lastCaseNum" disabled>شماره پرونده جدید</button>
+        <button type="button" class="w3-bar-item w3-button w3-teal w3-round-large w3-hover-blue" id="lastCaseNum"
+            disabled>شماره پرونده جدید</button>
     </header>
 
     <main class="centered dr-info">
@@ -91,8 +92,8 @@
                             <label for="diagnose">تشخیص:</label>
                         </td>
                         <td style="width: 400px;">
-                            <input type="text" class="input w3-input w3-border w3-round-large" id="diagnse" name="diagnose"
-                                placeholder="تشخیص">
+                            <input type="text" class="input w3-input w3-border w3-round-large" id="diagnse"
+                                name="diagnose" placeholder="تشخیص">
                         </td>
                     </tr>
                     <tr>
@@ -109,15 +110,16 @@
                             <label for="next_date">تاریخ مراجعه بعدی:</label>
                         </td>
                         <td>
-                            <input type="text" id="next_date" name="next_date" class="input w3-input w3-border w3-round-large" style="padding-right: 20px;">
+                            <input type="text" id="next_date" name="next_date"
+                                class="input w3-input w3-border w3-round-large" style="padding-right: 20px;">
                         </td>
                     </tr>
                 </table>
             </div>
-    
+
             <div class="w3-container w3-card-4 w3-light-grey diagnose container row">
                 <div class="column">
-                    <table class="search_table cases_table" >
+                    <table class="search_table cases_table">
                         <thead>
                             <tr>
                                 <th>خدمات</th>
@@ -142,8 +144,8 @@
                             <tr>
                                 <td>تزریقات</td>
                                 <td>
-                                    <input type="text" class="input w3-input w3-border w3-round-large price"
-                                        name="shot" placeholder="تعرفه">
+                                    <input type="text" class="input w3-input w3-border w3-round-large price" name="shot"
+                                        placeholder="تعرفه">
                                 </td>
                             </tr>
                             <tr>
@@ -161,52 +163,52 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td >سونوگرافی</td>
+                                <td>سونوگرافی</td>
                                 <td>
                                     <input type="text" class="input w3-input w3-border w3-round-large price"
                                         name="sonography" placeholder="تعرفه">
                                 </td>
                             </tr>
                             <tr>
-                                <td >جرمگیری</td>
+                                <td>جرمگیری</td>
                                 <td>
                                     <input type="text" class="input w3-input w3-border w3-round-large price"
                                         name="plaque" placeholder="تعرفه">
                                 </td>
                             </tr>
                             <tr>
-                                <td >پانسیون</td>
+                                <td>پانسیون</td>
                                 <td>
                                     <input type="text" class="input w3-input w3-border w3-round-large price"
                                         name="pension" placeholder="تعرفه">
                                 </td>
                             </tr>
                             <tr>
-                                <td >تست اختصاصی</td>
+                                <td>تست اختصاصی</td>
                                 <td>
                                     <input type="text" class="input w3-input w3-border w3-round-large price"
                                         name="spTest" placeholder="تعرفه">
                                 </td>
                             </tr>
                             <tr>
-                                <td >اصلاح</td>
+                                <td>اصلاح</td>
                                 <td>
                                     <input type="text" class="input w3-input w3-border w3-round-large price"
                                         name="shave" placeholder="تعرفه">
                                 </td>
                             </tr>
                             <tr>
-                                <td >آندوسکوپی</td>
+                                <td>آندوسکوپی</td>
                                 <td>
                                     <input type="text" class="input w3-input w3-border w3-round-large price"
                                         name="endoscopy" placeholder="تعرفه">
                                 </td>
                             </tr>
                             <tr>
-                                <td >متفرقه</td>
+                                <td>متفرقه</td>
                                 <td>
-                                    <input type="text" class="input w3-input w3-border w3-round-large price"
-                                        name="odd" placeholder="تعرفه">
+                                    <input type="text" class="input w3-input w3-border w3-round-large price" name="odd"
+                                        placeholder="تعرفه">
                                 </td>
                             </tr>
                         </tbody>
@@ -214,14 +216,15 @@
                             <tr>
                                 <td><label for="total">جمع کل</label></td>
                                 <td>
-                                    <input type="text" id="total" style="text-align: center;" value="0" class="input w3-input w3-border w3-round-large total" readonly>
+                                    <input type="text" id="total" style="text-align: center;" value="0"
+                                        class="input w3-input w3-border w3-round-large total" readonly>
                                 </td>
                             </tr>
                         </tfoot>
                     </table>
 
                 </div>
-                
+
                 <div class="column">
                     <table class="search_table cases_table" id="drug_table">
                         <thead>
@@ -235,75 +238,91 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <input type="text" name="drug" class="input w3-input w3-border w3-round-large" placeholder="نام دارو">
+                                    <input type="text" name="drug" class="input w3-input w3-border w3-round-large"
+                                        placeholder="نام دارو">
                                 </td>
                                 <td>
-                                    <input type="text" name="price" class="input w3-input w3-border w3-round-large price" placeholder="قیمت">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="text" name="drug" class="input w3-input w3-border w3-round-large" placeholder="نام دارو">
-                                </td>
-                                <td>
-                                    <input type="text" name="price" class="input w3-input w3-border w3-round-large price" placeholder="قیمت">
+                                    <input type="text" name="price"
+                                        class="input w3-input w3-border w3-round-large price" placeholder="قیمت">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="text" name="drug" class="input w3-input w3-border w3-round-large" placeholder="نام دارو">
+                                    <input type="text" name="drug" class="input w3-input w3-border w3-round-large"
+                                        placeholder="نام دارو">
                                 </td>
                                 <td>
-                                    <input type="text" name="price" class="input w3-input w3-border w3-round-large price" placeholder="قیمت">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="text" name="drug" class="input w3-input w3-border w3-round-large" placeholder="نام دارو">
-                                </td>
-                                <td>
-                                    <input type="text" name="price" class="input w3-input w3-border w3-round-large price" placeholder="قیمت">
+                                    <input type="text" name="price"
+                                        class="input w3-input w3-border w3-round-large price" placeholder="قیمت">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="text" name="drug" class="input w3-input w3-border w3-round-large" placeholder="نام دارو">
+                                    <input type="text" name="drug" class="input w3-input w3-border w3-round-large"
+                                        placeholder="نام دارو">
                                 </td>
                                 <td>
-                                    <input type="text" name="price" class="input w3-input w3-border w3-round-large price" placeholder="قیمت">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="text" name="drug" class="input w3-input w3-border w3-round-large price" placeholder="نام دارو">
-                                </td>
-                                <td>
-                                    <input type="text" name="price" class="input w3-input w3-border w3-round-large price" placeholder="قیمت">
+                                    <input type="text" name="price"
+                                        class="input w3-input w3-border w3-round-large price" placeholder="قیمت">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="text" name="drug" class="input w3-input w3-border w3-round-large" placeholder="نام دارو">
+                                    <input type="text" name="drug" class="input w3-input w3-border w3-round-large"
+                                        placeholder="نام دارو">
                                 </td>
                                 <td>
-                                    <input type="text" name="price" class="input w3-input w3-border w3-round-large price" placeholder="قیمت">
+                                    <input type="text" name="price"
+                                        class="input w3-input w3-border w3-round-large price" placeholder="قیمت">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" name="drug" class="input w3-input w3-border w3-round-large"
+                                        placeholder="نام دارو">
+                                </td>
+                                <td>
+                                    <input type="text" name="price"
+                                        class="input w3-input w3-border w3-round-large price" placeholder="قیمت">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" name="drug" class="input w3-input w3-border w3-round-large price"
+                                        placeholder="نام دارو">
+                                </td>
+                                <td>
+                                    <input type="text" name="price"
+                                        class="input w3-input w3-border w3-round-large price" placeholder="قیمت">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" name="drug" class="input w3-input w3-border w3-round-large"
+                                        placeholder="نام دارو">
+                                </td>
+                                <td>
+                                    <input type="text" name="price"
+                                        class="input w3-input w3-border w3-round-large price" placeholder="قیمت">
                                 </td>
                             </tr>
                         </tbody>
                         <tfoot>
                             <tr>
                                 <td>
-                                    <button class="w3-bar-item w3-button w3-indigo w3-round-large" type="button" id="new_drug">داروی جدید</button>
+                                    <button class="w3-bar-item w3-button w3-indigo w3-round-large" type="button"
+                                        id="new_drug">داروی جدید</button>
                                 </td>
                             </tr>
                         </tfoot>
                     </table>
                 </div>
-                
-                <input id="sendSubmit" type="button" value="ثبت و ارسال اطلاعات" class="w3-button w3-round-large w3-green">
+
+                <input id="sendSubmit" type="button" value="ثبت و ارسال اطلاعات"
+                    class="w3-button w3-round-large w3-green">
             </div>
         </form>
-        
+
 
     </main>
     <footer></footer>
@@ -314,53 +333,53 @@
 
         socket.on('connection')
 
-        socket.on('sendDr', (data)=>{
+        socket.on('sendDr', (data) => {
             //alert(data)
             var dt = JSON.parse(data)
             document.getElementById('fname').value = dt.fname
         })
         var el = document.querySelector('input.price');
         el.addEventListener('keyup', function (event) {
-        if (event.which >= 37 && event.which <= 40) return;
+            if (event.which >= 37 && event.which <= 40) return;
 
-        this.value = this.value.replace(/\D/g, '')
-                                .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            this.value = this.value.replace(/\D/g, '')
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
         });
 
 
-        $(document).ready(()=>{
-            $('#lastCaseNum').click(()=>{
+        $(document).ready(() => {
+            $('#lastCaseNum').click(() => {
                 $.ajax({
                     type: "POST",
                     url: 'http://192.168.1.105:3001/doctor/lastCaseNum',
                     dataType: "json",
-                    success: (res, status)=>{
+                    success: (res, status) => {
                         alert(res.lastCaseNum)
                     }
 
                 })
             })
 
-            $('input.price').keyup(function(event) {
+            $('input.price').keyup(function (event) {
                 var total = 0
 
                 // skip for arrow keys
-                if(event.which >= 37 && event.which <= 40){
-                event.preventDefault();
+                if (event.which >= 37 && event.which <= 40) {
+                    event.preventDefault();
                 }
 
-                $(this).val(function(index, value) {
-                    value = value.replace(/,/g,'');
+                $(this).val(function (index, value) {
+                    value = value.replace(/,/g, '');
                     return numberWithCommas(value);
                 });
-                $('input.price').each(function(i, obj) {
+                $('input.price').each(function (i, obj) {
                     obj = obj.value.replace(/,/g, '')
                     total += Number(obj)
                 })
                 $('#total').val(numberWithCommas(total))
             });
 
-            $('#total').bind('change paste keyup',function(event){
+            $('#total').bind('change paste keyup', function (event) {
                 // skip for arrow keys
                 /*
                 if(event.which >= 37 && event.which <= 40){
@@ -372,38 +391,41 @@
                     return numberWithCommas(value);
                 });
                 */
-               
+
             })
 
             function numberWithCommas(x) {
-            var parts = x.toString().split(".");
-            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            return parts.join(".");
+                var parts = x.toString().split(".");
+                parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                return parts.join(".");
             }
 
-            $(function (){
+            $(function () {
                 $('#next_date').persianDatepicker({
                     selectedBefore: !0,
                     formatDate: "YYYY/MM/DD"
                 })
             })
 
-            $('#sendSubmit').click(()=>{
+            $('#sendSubmit').click(() => {
                 var temp = $('form').serializeArray()
                 var data = [], j = 0
                 for (let i = 0; i < temp.length; i++) {
-                    if (temp[i].value == "") {
+                    if (temp[i].name == "diagnose" || temp[i].name == "treatment") {
+                        data[j] = temp[i]
+                        j++
+                    } else if (temp[i].value == "") {
                         continue
                     }
                     else {
-                        data[j] = temp[i] 
+                        data[j] = temp[i]
                         j++
                     }
                 }
                 socket.emit('confirmData', data)
             })
 
-            $('#new_drug').click(()=>{
+            $('#new_drug').click(() => {
                 $('#drug_table tbody').append(
                     `<tr>
                         <td>

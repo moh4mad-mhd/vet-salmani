@@ -74,4 +74,11 @@ $(document).ready(() => {
             $('#cases').css('visibility', 'collapse')
         }
     })
+
+    $('.closebtn').click(() => {
+        $(this).parent.style.opacity = '0'
+        setTimeout(() => {
+            $(this).parent.style.display = 'none'
+        }, 600);
+    })
 })

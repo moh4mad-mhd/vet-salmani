@@ -10,6 +10,7 @@
     <script src="https://cdn.socket.io/3.0.5/socket.io.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <script src="https://unpkg.com/jalali-moment/dist/jalali-moment.browser.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/home.js"></script>
     <title>Dr Salmani</title>
@@ -17,10 +18,15 @@
 
 <body>
 
-    <header>
+    <header class="centered" style="width: 70%;">
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            فردا نوبت فلانی است
+        </div>
     </header>
 
     <main class="centered">
+        <div id="date"></div>
 
         <div class="topnav">
             <a class="active" href="home">ثبت پرونده</a>
@@ -48,7 +54,8 @@
                     <tr>
                         <td>شماره پرونده:</td>
                         <td id="case_number"></td>
-                        <td style="padding-right: 5px;" onclick="close_case()"><i style='font-size:14px' class='fas'>&#xf00d;</i></td>
+                        <td style="padding-right: 5px;" onclick="close_case()"><i style='font-size:14px'
+                                class='fas'>&#xf00d;</i></td>
                     </tr>
                 </table>
             </div>
@@ -139,6 +146,9 @@
 
     <script>
         autocomplete(document.getElementById("pet_type"), pet);
+        document.getElementById('date').innerHTML = moment().locale('fa').format('YYYY-MM-DD')
+
     </script>
 </body>
+
 </html>
